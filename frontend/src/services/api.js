@@ -39,5 +39,6 @@ export const feedbackApi = {
   getFeedback: () => request('/feedback'),
   getFeedbackByStudent: (studentId) => request(`/students/${studentId}/feedback`),
   createFeedback: (data) => request('/feedback', { method: 'POST', body: JSON.stringify(data) }),
+  updateFeedback: (id, data) => request(`/feedback/${id}`, { method: 'PUT', body: JSON.stringify(data) }),
   deleteFeedback: (id) => request(`/feedback/${id}`, { method: 'DELETE' }),
 };

@@ -63,4 +63,15 @@ class FeedbackServiceTest {
 
         assertThrows(Exception.class, () -> feedbackService.createFeedback(request));
     }
+
+    @Test
+    void shouldUpdateFeedbackAndReclassifySentiment() {
+        Student student = studentRepository.save(new Student("Charlie"));
+        FeedbackResponse created = feedbackService.createFeedback(new FeedbackRequest(student.getId(), "Great effort today"));
+
+        FeedbackResponse updated = feedbackService.updateFeedback(created.id(), new FeedbackRequest(student.getId(), "This is terrible and not helpful"));
+
+        assertEquals("This is terrible and not helpful", updated.note());
+        assertEquals(Sentiment.NEGATIVE, updated.sentiment());
+    }
 }

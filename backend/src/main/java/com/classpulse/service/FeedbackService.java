@@ -72,6 +72,29 @@ public class FeedbackService {
     }
 
     @Transactional
+    public FeedbackResponse updateFeedback(Long id, FeedbackRequest request) {
+        if (request == null || request.studentId() == null) {
+            throw new IllegalArgumentException("Student ID is required");
+        }
+        if (request.note() == null || request.note().isBlank()) {
+            throw new IllegalArgumentException("Feedback note is required");
+        }
+
+        Feedback feedback = feedbackRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Feedback not found with id: " + id));
+
+        Student student = studentRepository.findById(request.studentId())
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id: " + request.studentId()));
+
+        feedback.setStudent(student);
+        feedback.setNote(request.note().trim());
+        feedback.setTimestamp(LocalDateTime.now());
+        feedback.setSentiment(sentimentService.classify(request.note()));
+
+        return toResponse(feedbackRepository.save(feedback));
+    }
+
+    @Transactional
     public void deleteFeedback(Long id) {
         Feedback feedback = feedbackRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Feedback not found with id: " + id));

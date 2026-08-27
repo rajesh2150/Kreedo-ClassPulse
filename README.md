@@ -1,56 +1,92 @@
 # ClassPulse
 
-ClassPulse is a lightweight teacher feedback dashboard for logging quick notes about students and reviewing an at-a-glance sentiment summary.
+ClassPulse is a lightweight teacher feedback dashboard for logging student notes, reviewing sentiment, and tracking classroom engagement through a responsive analytics dashboard.
 
 ## Features
 
-- Student CRUD
-- Feedback CRUD
-- Student-specific feedback
-- Sentiment classification
+- Student CRUD with add and delete flows
+- Feedback CRUD with create, view, edit, and delete
+- Student-specific feedback tracking
+- Sentiment classification using rule-based scoring with optional Groq fallback
+- Real-time dashboard cards for totals and sentiment counts
+- Sentiment distribution donut chart
+- Feedback-per-student bar chart
 - Responsive React UI
-- H2 database
+- H2 in-memory database
 
 ## Tech Stack
 
 Backend:
-- Java
-- Spring Boot
+- Java 17
+- Spring Boot 3.3.2
 - Spring Data JPA
-- H2
+- H2 database
 - Jakarta Validation
 
 Frontend:
-- React
-- JavaScript
+- React 18
+- Vite
+- Recharts
 - CSS
 
 Sentiment:
 - Rule-based sentiment classifier
+- Optional Groq API integration
 
 ## Architecture
 
-React
+React frontend
 ↓
 REST API
 ↓
-Spring Boot Service
+Spring Boot controllers and services
 ↓
-Repository
+JPA repositories
 ↓
-H2
+H2 database
 
-Feedback:
-Feedback
-↓
-Student
-
-Sentiment:
+Feedback flow:
 Feedback note
 ↓
 SentimentService
 ↓
 Positive / Neutral / Negative
+
+## Dashboard Features
+
+- Summary cards for Students, Total Feedback, Positive, Neutral, and Negative counts
+- Donut chart for sentiment distribution
+- Bar chart showing feedback count per student
+- Feedback review cards with sentiment badges and edit/delete actions
+- Student panel with note counts
+
+## Screenshot Gallery
+
+The application UI includes the following dashboard views:
+
+- Dashboard summary and forms
+- Sentiment distribution chart
+- Feedback-per-student chart
+- Feedback review cards and student list
+
+Place exported screenshots in the folder below and then update the markdown with the final image names:
+
+```text
+docs/screenshots/
+  dashboard-overview.png
+  sentiment-chart.png
+  feedback-per-student-chart.png
+  feedback-review.png
+```
+
+Example placeholder format:
+
+```md
+![Dashboard overview](docs/screenshots/dashboard-overview.png)
+![Sentiment distribution](docs/screenshots/sentiment-chart.png)
+![Feedback per student](docs/screenshots/feedback-per-student-chart.png)
+![Feedback review](docs/screenshots/feedback-review.png)
+```
 
 ## API Endpoints
 
@@ -64,6 +100,7 @@ Positive / Neutral / Negative
 - POST /api/feedback
 - GET /api/feedback
 - GET /api/feedback/{id}
+- PUT /api/feedback/{id}
 - DELETE /api/feedback/{id}
 - GET /api/students/{studentId}/feedback
 
@@ -84,10 +121,10 @@ mvn spring-boot:run
 ```
 
 The backend runs on:
-- http://localhost:8080
+- http://localhost:8081
 
 H2 console is enabled at:
-- http://localhost:8080/h2-console
+- http://localhost:8081/h2-console
 
 JDBC URL:
 - jdbc:h2:mem:classpulse
@@ -108,24 +145,24 @@ The frontend runs on:
 ## URLs
 
 - Frontend: http://localhost:5173
-- Backend: http://localhost:8080
-- H2 console: http://localhost:8080/h2-console
+- Backend: http://localhost:8081
+- H2 console: http://localhost:8081/h2-console
 
 ## Sentiment Approach
 
-This implementation uses a lightweight deterministic rule-based sentiment classifier by default to keep the take-home application self-contained and cost-free. If a Groq API key is provided via the `GROQ_API_KEY` environment variable, the app can optionally use Groq for sentiment classification before falling back to the built-in rule-based logic.
+This implementation uses a lightweight deterministic rule-based sentiment classifier by default to keep the app self-contained and cost-free. If a Groq API key is provided through the `GROQ_API_KEY` environment variable, the app can optionally use Groq for sentiment classification before falling back to the built-in rule-based logic.
 
 Why this approach:
 - no external API dependency by default
 - no API key required for local use
-- no cost for the default path
+- cost-free default path
 - deterministic and easy to test
-- replaceable with LLM or pretrained model later
+- replaceable with LLM or model-backed scoring later
 
 Optional Groq configuration:
-```bash
-set GROQ_API_KEY=your_key_here
-set GROQ_MODEL=llama-3.1-8b-instant
+```powershell
+$env:GROQ_API_KEY="your_key_here"
+$env:GROQ_MODEL="llama-3.1-8b-instant"
 ```
 
 ## Design Decisions
@@ -133,31 +170,33 @@ set GROQ_MODEL=llama-3.1-8b-instant
 - Layered backend architecture with controllers, services, repositories, and entities
 - DTOs used for request/response payloads instead of JPA entities
 - Jakarta Bean Validation for request validation
-- Global exception handling for consistent 400/404/500 responses
 - One-to-many Student/Feedback relationship with a simple H2 in-memory database
-- Responsive React UI for desktop, tablet, and mobile workflows
+- Responsive React dashboard for desktop, tablet, and mobile workflows
 - Sentiment logic abstracted behind SentimentService so it can be replaced later
+- Recharts used for sentiment and student analytics visualizations
 
 ## Trade-offs
 
 This is intentionally a small, self-contained implementation. A production system could add:
-- pretrained sentiment model
-- LLM-based classification
-- authentication
+- pretrained sentiment models
+- LLM-powered classification
+- authentication and roles
 - PostgreSQL
-- pagination
+- pagination and filtering
 - audit logging
-- better NLP coverage
+- richer analytics and retention features
 
 ## Future Improvements
 
 - Add pagination and filtering for larger classrooms
-- Add editing in place for students and feedback
-- Add a richer sentiment model with NLP tuning or model-backed scoring
+- Add teacher-friendly search and sorting
+- Add student edit in place
+- Add a richer NLP or ML-backed sentiment engine
 - Add stronger audit and retention features for teacher notes
 
 ## Notes
 
-- Student deletion first removes associated feedback to keep the data model consistent.
+- Student deletion removes associated feedback to keep the dataset consistent.
 - Feedback sentiment is generated server-side and is never taken from the frontend.
-- The N+1 issue is avoided by using fetch-join repository queries for listing feedback and student-specific feedback.
+- Feedback edit actions re-run sentiment classification after the note is updated.
+- The H2 database is in-memory, so data resets when the backend restarts.

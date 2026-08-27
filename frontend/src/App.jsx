@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recharts';
 import { studentApi, feedbackApi } from './services/api';
 import StudentForm from './components/StudentForm';
 import FeedbackForm from './components/FeedbackForm';
@@ -21,6 +22,8 @@ export default function App() {
   const [isAddingFeedback, setIsAddingFeedback] = useState(false);
   const [isDeletingFeedback, setIsDeletingFeedback] = useState(false);
   const [isDeletingStudent, setIsDeletingStudent] = useState(false);
+  const [editingFeedbackId, setEditingFeedbackId] = useState(null);
+  const [editingFeedbackText, setEditingFeedbackText] = useState('');
   const [error, setError] = useState('');
   const [studentError, setStudentError] = useState('');
   const [feedbackError, setFeedbackError] = useState('');
@@ -39,6 +42,51 @@ export default function App() {
       neutral: counts.NEUTRAL,
       negative: counts.NEGATIVE,
     };
+  }, [students, feedbackItems]);
+
+  const sentimentChartData = useMemo(() => [
+    { name: 'Positive', value: summary.positive, color: '#16a34a' },
+    { name: 'Neutral', value: summary.neutral, color: '#d97706' },
+    { name: 'Negative', value: summary.negative, color: '#dc2626' },
+  ], [summary]);
+
+  const studentFeedbackChartData = useMemo(() => {
+    const countsByStudent = new Map();
+
+    const addStudentEntry = (studentName) => {
+      const normalizedName = (studentName || '').trim();
+      if (!normalizedName) {
+        return;
+      }
+
+      const key = normalizedName.toLowerCase();
+      if (!countsByStudent.has(key)) {
+        countsByStudent.set(key, {
+          name: normalizedName.length > 12 ? `${normalizedName.slice(0, 12)}...` : normalizedName,
+          feedback: 0,
+        });
+      }
+    };
+
+    students.forEach((student) => addStudentEntry(student.name));
+
+    feedbackItems.forEach((item) => {
+      const normalizedName = (item.studentName || '').trim();
+      if (!normalizedName) {
+        return;
+      }
+
+      const key = normalizedName.toLowerCase();
+      if (!countsByStudent.has(key)) {
+        countsByStudent.set(key, {
+          name: normalizedName.length > 12 ? `${normalizedName.slice(0, 12)}...` : normalizedName,
+          feedback: 0,
+        });
+      }
+      countsByStudent.get(key).feedback += 1;
+    });
+
+    return [...countsByStudent.values()];
   }, [students, feedbackItems]);
 
   const loadStudents = async () => {
@@ -127,10 +175,49 @@ export default function App() {
       setIsDeletingFeedback(true);
       await feedbackApi.deleteFeedback(id);
       setFeedbackItems((current) => current.filter((item) => item.id !== id));
+      if (editingFeedbackId === id) {
+        setEditingFeedbackId(null);
+        setEditingFeedbackText('');
+      }
     } catch (err) {
       setFeedbackError(err.message || 'Unable to delete feedback.');
     } finally {
       setIsDeletingFeedback(false);
+    }
+  };
+
+  const handleEditFeedback = (item) => {
+    setEditingFeedbackId(item.id);
+    setEditingFeedbackText(item.note);
+  };
+
+  const handleUpdateFeedback = async (id) => {
+    const trimmed = editingFeedbackText.trim();
+    if (!trimmed) {
+      setFeedbackError('Feedback note is required.');
+      return;
+    }
+
+    const feedbackToUpdate = feedbackItems.find((item) => item.id === id);
+    if (!feedbackToUpdate) {
+      return;
+    }
+
+    try {
+      const updated = await feedbackApi.updateFeedback(id, {
+        studentId: feedbackToUpdate.studentId,
+        note: trimmed,
+      });
+
+      setFeedbackItems((current) =>
+        current.map((item) => (item.id === id ? updated : item))
+      );
+      await loadFeedback();
+      setEditingFeedbackId(null);
+      setEditingFeedbackText('');
+      setFeedbackError('');
+    } catch (err) {
+      setFeedbackError(err.message || 'Unable to update feedback.');
     }
   };
 
@@ -207,6 +294,62 @@ export default function App() {
           />
         </section>
 
+        {(students.length > 0 || feedbackItems.length > 0) && (
+          <section className="chart-grid">
+            <div className="panel chart-panel">
+              <div className="panel-header">
+                <h2>Sentiment Distribution</h2>
+              </div>
+              <div className="chart-wrap">
+                <ResponsiveContainer width="100%" height={220}>
+                  <PieChart>
+                    <Pie
+                      data={sentimentChartData}
+                      dataKey="value"
+                      nameKey="name"
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={46}
+                      outerRadius={80}
+                      paddingAngle={2}
+                    >
+                      {sentimentChartData.map((entry) => (
+                        <Cell key={entry.name} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </PieChart>
+                </ResponsiveContainer>
+              </div>
+              <div className="chart-legend">
+                {sentimentChartData.map((entry) => (
+                  <div className="legend-item" key={entry.name}>
+                    <span className="legend-dot" style={{ backgroundColor: entry.color }} />
+                    <span>{entry.name}</span>
+                    <strong>{entry.value}</strong>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="panel chart-panel">
+              <div className="panel-header">
+                <h2>Feedback per Student</h2>
+              </div>
+              <div className="chart-wrap">
+                <ResponsiveContainer width="100%" height={220}>
+                  <BarChart data={studentFeedbackChartData}>
+                    <XAxis dataKey="name" tickLine={false} axisLine={false} />
+                    <YAxis allowDecimals={false} tickLine={false} axisLine={false} />
+                    <Tooltip />
+                    <Bar dataKey="feedback" radius={[8, 8, 0, 0]} fill="#4f46e5" />
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            </div>
+          </section>
+        )}
+
         <section className="panel feedback-panel">
           <div className="panel-header">
             <h2>Feedback Overview</h2>
@@ -234,8 +377,42 @@ export default function App() {
                     </div>
                     <SentimentBadge sentiment={item.sentiment} />
                   </div>
-                  <p>{item.note}</p>
+                  {editingFeedbackId === item.id ? (
+                    <div className="edit-feedback-box">
+                      <textarea
+                        value={editingFeedbackText}
+                        rows="4"
+                        onChange={(event) => setEditingFeedbackText(event.target.value)}
+                      />
+                      <div className="edit-feedback-actions">
+                        <button className="primary-button" type="button" onClick={() => handleUpdateFeedback(item.id)}>
+                          Save
+                        </button>
+                        <button
+                          className="secondary-button"
+                          type="button"
+                          onClick={() => {
+                            setEditingFeedbackId(null);
+                            setEditingFeedbackText('');
+                          }}
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <p>{item.note}</p>
+                  )}
                   <div className="card-actions">
+                    {editingFeedbackId !== item.id && (
+                      <button
+                        className="secondary-button"
+                        type="button"
+                        onClick={() => handleEditFeedback(item)}
+                      >
+                        Edit
+                      </button>
+                    )}
                     <button
                       className="delete-button"
                       type="button"

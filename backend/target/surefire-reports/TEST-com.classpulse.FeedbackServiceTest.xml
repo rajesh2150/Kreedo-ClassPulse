@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.classpulse.FeedbackServiceTest" time="5.101" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.classpulse.FeedbackServiceTest" time="6.58" tests="4" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,8 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-22\bin"/>
-    <property name="sun.java.command" value="C:\Users\itsme\AppData\Local\Temp\surefire8282138725064766283\surefirebooter-20260827210028600_3.jar C:\Users\itsme\AppData\Local\Temp\surefire8282138725064766283 2026-08-27T21-00-28_428-jvmRun1 surefire-20260827210028600_1tmp surefire_0-20260827210028600_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\itsme\AppData\Local\Temp\surefire13166883897455361053\surefirebooter-20260827215536528_3.jar C:\Users\itsme\AppData\Local\Temp\surefire13166883897455361053 2026-08-27T21-55-36_312-jvmRun1 surefire-20260827215536528_1tmp surefire_0-20260827215536528_2tmp"/>
     <property name="jdk.debug" value="release"/>
+    <property name="test" value="FeedbackServiceTest"/>
     <property name="surefire.test.class.path" value="C:\Users\itsme\Desktop\pandu\backend\target\test-classes;C:\Users\itsme\Desktop\pandu\backend\target\classes;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.3.2\spring-boot-starter-web-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.2\spring-boot-starter-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot\3.3.2\spring-boot-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.2\spring-boot-autoconfigure-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.2\spring-boot-starter-logging-3.3.2.jar;C:\Users\itsme\.m2\repository\ch\qos\logback\logback-classic\1.5.6\logback-classic-1.5.6.jar;C:\Users\itsme\.m2\repository\ch\qos\logback\logback-core\1.5.6\logback-core-1.5.6.jar;C:\Users\itsme\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\itsme\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\itsme\.m2\repository\org\slf4j\jul-to-slf4j\2.0.13\jul-to-slf4j-2.0.13.jar;C:\Users\itsme\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\itsme\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.3.2\spring-boot-starter-json-3.3.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.17.2\jackson-datatype-jdk8-2.17.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.17.2\jackson-datatype-jsr310-2.17.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.17.2\jackson-module-parameter-names-2.17.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.3.2\spring-boot-starter-tomcat-3.3.2.jar;C:\Users\itsme\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.26\tomcat-embed-core-10.1.26.jar;C:\Users\itsme\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.26\tomcat-embed-websocket-10.1.26.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-web\6.1.11\spring-web-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-beans\6.1.11\spring-beans-6.1.11.jar;C:\Users\itsme\.m2\repository\io\micrometer\micrometer-observation\1.13.2\micrometer-observation-1.13.2.jar;C:\Users\itsme\.m2\repository\io\micrometer\micrometer-commons\1.13.2\micrometer-commons-1.13.2.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-webmvc\6.1.11\spring-webmvc-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-aop\6.1.11\spring-aop-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-context\6.1.11\spring-context-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-expression\6.1.11\spring-expression-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.2\spring-boot-starter-data-jpa-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.2\spring-boot-starter-aop-3.3.2.jar;C:\Users\itsme\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.2\spring-boot-starter-jdbc-3.3.2.jar;C:\Users\itsme\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-jdbc\6.1.11\spring-jdbc-6.1.11.jar;C:\Users\itsme\.m2\repository\org\hibernate\orm\hibernate-core\6.5.2.Final\hibernate-core-6.5.2.Final.jar;C:\Users\itsme\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\itsme\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\itsme\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\itsme\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\itsme\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\itsme\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\itsme\.m2\repository\net\bytebuddy\byte-buddy\1.14.18\byte-buddy-1.14.18.jar;C:\Users\itsme\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\itsme\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\itsme\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\itsme\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\itsme\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\itsme\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\itsme\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\itsme\.m2\repository\org\springframework\data\spring-data-jpa\3.3.2\spring-data-jpa-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\data\spring-data-commons\3.3.2\spring-data-commons-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-orm\6.1.11\spring-orm-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-tx\6.1.11\spring-tx-6.1.11.jar;C:\Users\itsme\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-aspects\6.1.11\spring-aspects-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.3.2\spring-boot-starter-validation-3.3.2.jar;C:\Users\itsme\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.26\tomcat-embed-el-10.1.26.jar;C:\Users\itsme\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\itsme\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\itsme\.m2\repository\com\h2database\h2\2.2.224\h2-2.2.224.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.3.2\spring-boot-starter-test-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-test\3.3.2\spring-boot-test-3.3.2.jar;C:\Users\itsme\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.2\spring-boot-test-autoconfigure-3.3.2.jar;C:\Users\itsme\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\itsme\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\itsme\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\itsme\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\itsme\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\itsme\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\itsme\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\itsme\.m2\repository\org\awaitility\awaitility\4.2.1\awaitility-4.2.1.jar;C:\Users\itsme\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\itsme\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\itsme\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\itsme\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\itsme\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\itsme\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\itsme\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\itsme\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\itsme\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\itsme\.m2\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;C:\Users\itsme\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.18\byte-buddy-agent-1.14.18.jar;C:\Users\itsme\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\itsme\.m2\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;C:\Users\itsme\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\itsme\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-core\6.1.11\spring-core-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-jcl\6.1.11\spring-jcl-6.1.11.jar;C:\Users\itsme\.m2\repository\org\springframework\spring-test\6.1.11\spring-test-6.1.11.jar;C:\Users\itsme\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\itsme"/>
@@ -33,7 +34,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\itsme\AppData\Local\Temp\surefire8282138725064766283\surefirebooter-20260827210028600_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\itsme\AppData\Local\Temp\surefire13166883897455361053\surefirebooter-20260827215536528_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="22.0.1+8-16"/>
@@ -51,11 +52,11 @@
     <property name="user.dir" value="C:\Users\itsme\Desktop\pandu\backend"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="20076"/>
+    <property name="PID" value="38592"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\itsme\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\itsme\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Users\itsme\AppData\Roaming\npm;C:\Program Files\Java\jdk-22\bin;C:\Users\itsme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Users\itsme\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Server 5.5\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\tools\apache-maven-3.9.8\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\itsme\AppData\Local\Microsoft\WindowsApps;C:\Users\itsme\AppData\Local\GitHubDesktop\bin;C:\Users\itsme\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\itsme\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\itsme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\itsme\AppData\Roaming\npm;C:\Users\itsme\AppData\Local\Kingsoft\WPS Office\12.1.0.27458\clitool;c:\Users\itsme\.vscode\extensions\vscjava.vscode-java-debug-0.59.0\bundled\scripts\noConfigScripts;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-22\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;c:\Users\itsme\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\itsme\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Python310\Scripts\;C:\Program Files\Python310\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Amazon\AWSCLI\bin\;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\Users\itsme\AppData\Roaming\npm;C:\Program Files\Java\jdk-22\bin;C:\Users\itsme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\nodejs\;C:\Users\itsme\AppData\Roaming\npm;C:\Program Files\MySQL\MySQL Server 5.5\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\tools\apache-maven-3.9.8\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\itsme\AppData\Local\Microsoft\WindowsApps;C:\Users\itsme\AppData\Local\GitHubDesktop\bin;C:\Users\itsme\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\itsme\AppData\Local\Microsoft\WinGet\Packages\Schniz.fnm_Microsoft.Winget.Source_8wekyb3d8bbwe;C:\Users\itsme\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\itsme\AppData\Roaming\npm;C:\Users\itsme\AppData\Local\Kingsoft\WPS Office\12.1.0.27458\clitool;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -64,9 +65,9 @@
     <property name="java.class.version" value="66.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[classpulse] "/>
   </properties>
-  <testcase name="shouldCreateFeedbackAndClassifySentiment" classname="com.classpulse.FeedbackServiceTest" time="0.568">
-    <system-out><![CDATA[21:00:29.684 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.classpulse.FeedbackServiceTest]: FeedbackServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:00:29.848 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.classpulse.ClassPulseApplication for test class com.classpulse.FeedbackServiceTest
+  <testcase name="shouldCreateFeedbackAndClassifySentiment" classname="com.classpulse.FeedbackServiceTest" time="1.132">
+    <system-out><![CDATA[21:55:37.714 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.classpulse.FeedbackServiceTest]: FeedbackServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:55:37.859 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.classpulse.ClassPulseApplication for test class com.classpulse.FeedbackServiceTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -77,17 +78,17 @@
 
  :: Spring Boot ::                (v3.3.2)
 
-2026-08-27T21:00:30.421+05:30  INFO 20076 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : Starting FeedbackServiceTest using Java 22.0.1 with PID 20076 (started by itsme in C:\Users\itsme\Desktop\pandu\backend)
-2026-08-27T21:00:30.423+05:30  INFO 20076 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : No active profile set, falling back to 1 default profile: "default"
-2026-08-27T21:00:30.986+05:30  INFO 20076 --- [classpulse] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-08-27T21:00:31.065+05:30  INFO 20076 --- [classpulse] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 2 JPA repository interfaces.
-2026-08-27T21:00:31.114+05:30  INFO 20076 --- [classpulse] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2026-08-27T21:00:31.320+05:30  INFO 20076 --- [classpulse] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:497a49be-c9e7-4aef-b020-9a0372273f03;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2026-08-27T21:00:31.647+05:30  INFO 20076 --- [classpulse] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-08-27T21:00:31.716+05:30  INFO 20076 --- [classpulse] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-08-27T21:00:31.763+05:30  INFO 20076 --- [classpulse] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-08-27T21:00:32.143+05:30  INFO 20076 --- [classpulse] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-08-27T21:00:33.090+05:30  INFO 20076 --- [classpulse] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-27T21:55:38.509+05:30  INFO 38592 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : Starting FeedbackServiceTest using Java 22.0.1 with PID 38592 (started by itsme in C:\Users\itsme\Desktop\pandu\backend)
+2026-08-27T21:55:38.509+05:30  INFO 38592 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : No active profile set, falling back to 1 default profile: "default"
+2026-08-27T21:55:39.080+05:30  INFO 38592 --- [classpulse] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-27T21:55:39.183+05:30  INFO 38592 --- [classpulse] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 2 JPA repository interfaces.
+2026-08-27T21:55:39.262+05:30  INFO 38592 --- [classpulse] [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2026-08-27T21:55:39.458+05:30  INFO 38592 --- [classpulse] [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:f3066fd7-2fdc-4649-8c88-750bc66e025b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2026-08-27T21:55:39.813+05:30  INFO 38592 --- [classpulse] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-27T21:55:39.875+05:30  INFO 38592 --- [classpulse] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-08-27T21:55:39.942+05:30  INFO 38592 --- [classpulse] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-27T21:55:40.408+05:30  INFO 38592 --- [classpulse] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-27T21:55:41.557+05:30  INFO 38592 --- [classpulse] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     create table feedback (
         id bigint generated by default as identity,
@@ -108,9 +109,9 @@ Hibernate:
        add constraint FKigtu5jh4x1solssfm8knepior 
        foreign key (student_id) 
        references students
-2026-08-27T21:00:33.152+05:30  INFO 20076 --- [classpulse] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-08-27T21:00:33.378+05:30  INFO 20076 --- [classpulse] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-08-27T21:00:33.927+05:30  INFO 20076 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : Started FeedbackServiceTest in 3.984 seconds (process running for 5.19)
+2026-08-27T21:55:41.631+05:30  INFO 38592 --- [classpulse] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-27T21:55:41.940+05:30  INFO 38592 --- [classpulse] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-27T21:55:42.762+05:30  INFO 38592 --- [classpulse] [           main] com.classpulse.FeedbackServiceTest       : Started FeedbackServiceTest in 4.803 seconds (process running for 6.067)
 Hibernate: 
     insert 
     into
@@ -132,7 +133,7 @@ WARNING: If a serviceability tool is not in use, please run with -Djdk.instrumen
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
 ]]></system-err>
   </testcase>
-  <testcase name="shouldThrowWhenStudentDoesNotExist" classname="com.classpulse.FeedbackServiceTest" time="0.016">
+  <testcase name="shouldThrowWhenStudentDoesNotExist" classname="com.classpulse.FeedbackServiceTest" time="0.03">
     <system-out><![CDATA[Hibernate: 
     select
         s1_0.id,
@@ -143,7 +144,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
         s1_0.id=?
 ]]></system-out>
   </testcase>
-  <testcase name="shouldRejectInvalidFeedbackNote" classname="com.classpulse.FeedbackServiceTest" time="0.006">
+  <testcase name="shouldRejectInvalidFeedbackNote" classname="com.classpulse.FeedbackServiceTest" time="0.008">
     <system-out><![CDATA[Hibernate: 
     insert 
     into
@@ -151,6 +152,23 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
         (name, id) 
     values
         (?, default)
+]]></system-out>
+  </testcase>
+  <testcase name="shouldUpdateFeedbackAndReclassifySentiment" classname="com.classpulse.FeedbackServiceTest" time="0.124">
+    <system-out><![CDATA[Hibernate: 
+    insert 
+    into
+        students
+        (name, id) 
+    values
+        (?, default)
+Hibernate: 
+    insert 
+    into
+        feedback
+        (note, sentiment, student_id, timestamp, id) 
+    values
+        (?, ?, ?, ?, default)
 ]]></system-out>
   </testcase>
 </testsuite>
