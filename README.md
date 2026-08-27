@@ -200,3 +200,13 @@ This is intentionally a small, self-contained implementation. A production syste
 - Feedback sentiment is generated server-side and is never taken from the frontend.
 - Feedback edit actions re-run sentiment classification after the note is updated.
 - The H2 database is in-memory, so data resets when the backend restarts.
+
+## ScreenShots
+
+<img width="1835" height="808" alt="image" src="https://github.com/user-attachments/assets/45941860-7f7c-45c4-a12c-ea0f544d039f" />
+<img width="1588" height="812" alt="image" src="https://github.com/user-attachments/assets/22b510ee-a38f-4d9b-a5b1-5fa871158b77" />
+<img width="1635" height="538" alt="image" src="https://github.com/user-attachments/assets/6135df9b-c65b-49db-a8ac-a3a16e5923e8" />
+<img width="1705" height="757" alt="image" src="https://github.com/user-attachments/assets/44943c19-324a-48d8-95ea-180ab282121f" />
+
+
+
