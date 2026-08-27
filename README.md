@@ -113,15 +113,20 @@ The frontend runs on:
 
 ## Sentiment Approach
 
-This implementation uses a lightweight deterministic rule-based sentiment classifier to keep the take-home application self-contained and cost-free. A production version could replace SentimentService with an LLM or pretrained model without changing the Feedback API.
+This implementation uses a lightweight deterministic rule-based sentiment classifier by default to keep the take-home application self-contained and cost-free. If a Groq API key is provided via the `GROQ_API_KEY` environment variable, the app can optionally use Groq for sentiment classification before falling back to the built-in rule-based logic.
 
 Why this approach:
-- no external API dependency
-- no API key
-- no cost
-- deterministic
-- easy to test
+- no external API dependency by default
+- no API key required for local use
+- no cost for the default path
+- deterministic and easy to test
 - replaceable with LLM or pretrained model later
+
+Optional Groq configuration:
+```bash
+set GROQ_API_KEY=your_key_here
+set GROQ_MODEL=llama-3.1-8b-instant
+```
 
 ## Design Decisions
 

@@ -1,0 +1,38 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.*
+
+# Java / backend
+backend/target/
+backend/.env
+backend/.env.*
+backend/*.log
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Logs
+*.log
+logs/
+
+# Local env / secrets
+.env
+.env.*
+
+# Build outputs
+build/
+out/

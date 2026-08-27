@@ -1,0 +1,20 @@
+# Build output
+/target/
+
+# Local env and secrets
+.env
+.env.*
+
+# IDE/editor files
+/.idea/
+/.vscode/
+*.iml
+*.class
+
+# Logs
+*.log
+
+# H2 local database files (if used outside memory mode)
+*.db
+*.trace.db
+*.lock.db

@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SentimentServiceTest {
 
-    private final SentimentService sentimentService = new SentimentService();
+    private final SentimentService sentimentService = new SentimentService("", "llama-3.1-8b-instant");
 
     @Test
     void shouldClassifyPositiveText() {
