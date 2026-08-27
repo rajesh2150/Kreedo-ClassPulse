@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.classpulse.FeedbackServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.101 s -- in com.classpulse.FeedbackServiceTest
